@@ -16,5 +16,7 @@ response = client.models.generate_content(
     )
 )
 print("----Response Chunk Start-----")
-print("response", response.text)
+# print("response", response.text)
+for chunk in response:
+    print(chunk.text, end="---\---")
 print("----Response Chunk End-------")
