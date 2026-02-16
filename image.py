@@ -1,3 +1,10 @@
+# Input --> Image
+# Output --> Text
+
+# System Instructions, Temperature
+# Multimodal Behaviour
+# Streaming Reponses
+
 from google import genai
 from google.genai import types
 from PIL import Image
@@ -12,8 +19,8 @@ response = client.models.generate_content_stream(
     model='gemini-2.5-flash',
     contents=[image,"Tell me about this image"],
     config = types.GenerateContentConfig(
-        system_instruction = "Response should be negative and response should be 20 words",
-        temperature = 2
+        system_instruction = "Response should be postive and response should be 20 words",
+        temperature = .01
     )
 )
 print("----Response Chunk Start-----")
