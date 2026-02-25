@@ -12,13 +12,15 @@ jql_query = 'project = "KAN" AND status = "To Do"'
 issues = jira.search_issues(jql_query, maxResults=False)
 # Loop through issues
 for issue in issues:
-    print(f"{issue.key}: {issue.fields.summary}")
+    for a in range(2): print('*')
+    print(f"JIRA ID is    :{issue.key} \nIssue Summary : {issue.fields.summary} \nIssue Created Date : {issue.fields.created}")
     comments = issue.fields.comment.comments
     for comment in comments:
             print(f"Comment ID: {comment.id}")
             print(f"Author: {comment.author.displayName}")
             print(f"Created: {comment.created}")
             print(f"Body: {comment.body}\n")
+    for a in range(2): print('*')
 
 for singleIssue in jira.search_issues(jql_str='project = KAN'): 
     print('{}: {}:{}'.format(singleIssue.key, singleIssue.fields.summary, singleIssue.fields.reporter.displayName))
